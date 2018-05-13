@@ -10,10 +10,12 @@ public class Server
     public static final int PORT = 5000;
     private static final int HEIGHT = 20;
     private static final int WIDTH = 20;
+    private static final int NUM_GHOSTS = 5;
 
     private final int port;
     private final int height;
     private final int width;
+    private final int numGhosts;
     private int nextGameNumber;
     private HashMap<Integer,Game> games;
 
@@ -21,6 +23,8 @@ public class Server
         int port = PORT;
         int height = HEIGHT;
         int width = WIDTH;
+        int numGhosts = NUM_GHOSTS;
+
         if (args.length > 0)
         {
             port = Integer.parseInt(args[0]);
@@ -32,14 +36,19 @@ public class Server
         if (args.length > 2) {
             width = Integer.parseInt(args[2]);
         }
-        Server server = new Server(port, height, width);
+        if (args.length > 3) {
+            width = Integer.parseInt(args[3]);
+        }
+
+        Server server = new Server(port, height, width, numGhosts);
         server.start();
     }
 
-    public Server(int port, int height, int width) {
+    public Server(int port, int height, int width, int numGhosts) {
         this.port = port;
         this.height = height;
         this.width = width;
+        this.numGhosts = numGhosts;
         this.games = new HashMap<>();
         this.nextGameNumber = 0;
     }
@@ -119,5 +128,9 @@ public class Server
 
     public int getWidth() {
         return width;
+    }
+
+    public int getNumGhosts() {
+        return numGhosts;
     }
 }

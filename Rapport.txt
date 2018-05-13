@@ -9,7 +9,7 @@ Execution :
 
 - Partie Serveur :
 javac *.java
-java Server [PORT=5000] [HEIGHT=20] [WIDTH=20]
+java Server [PORT=5000] [HEIGHT=20] [WIDTH=20] [NUM_GHOSTS=5]
 
 - Partie Client :
 javac *.java

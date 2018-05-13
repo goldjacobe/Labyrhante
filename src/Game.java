@@ -14,7 +14,6 @@ public class Game implements Runnable {
 
     private final Labyrinth labyrinth;
 
-    private static final int NUM_GHOSTS = 5;
     private final int height;
     private final int width;
     private int numGhosts;
@@ -30,11 +29,11 @@ public class Game implements Runnable {
         this.multicastPort = 5000 + number;
         this.height = server.getHeight();
         this.width = server.getWidth();
+        this.numGhosts = server.getNumGhosts();
         players = new HashMap<>();
 
         this.labyrinth = new Labyrinth(height, width);
 
-        numGhosts = NUM_GHOSTS;
         this.ghosts = new Ghost[numGhosts];
         for (int i = 0; i < numGhosts; i++) {
             ghosts[i] = new Ghost();
