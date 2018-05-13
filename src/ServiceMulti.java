@@ -36,7 +36,8 @@ public class ServiceMulti implements Runnable {
         String mess = "";
 
         String[] messArray;
-        messArray = msg.split(" ");
+        String messClean = msg.replace("+++", ""); //Supprimer les +++ a la fin du msg reçu
+        messArray = messClean.split(" ");
 
         switch (messArray[0]) {
 
