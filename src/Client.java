@@ -565,8 +565,8 @@ public class Client extends TCPHandler {
         System.out.println("Combien de cases?");
         int d = Integer.parseInt(input.nextLine());
 
-        sendString(direction.name());
-        System.out.println(direction.name()); //todo remove
+        sendString(direction.toString());
+        System.out.println(direction.toString()); //todo remove
         sendString(" ");
         System.out.println(d); //todo remove
         sendNumber(d);
