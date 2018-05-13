@@ -48,6 +48,7 @@ public class TCPHandler {
         ArrayList<Byte> out = new ArrayList<>();
         while (numStars < 3) {
             int i = is.read();
+            System.out.println(i); //todo remove
             if (i != -1) {
                 out.add((byte) i);
             }
