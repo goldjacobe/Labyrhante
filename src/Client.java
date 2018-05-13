@@ -430,7 +430,7 @@ public class Client extends TCPHandler {
             case "down":
             case "left":
             case "right":
-                move(Direction.valueOf(command));
+                move(Direction.valueOf(command.toUpperCase()));
                 break;
             case "quit":
                 quit();
