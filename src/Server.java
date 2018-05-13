@@ -83,6 +83,8 @@ public class Server
         ServerSocket servSock = new ServerSocket(port);
         while (true) {
             Socket socket = servSock.accept();
+            System.out.println(socket.getInetAddress().toString());
+            System.out.println(socket.getPort());
             Player player = new Player(socket);
             PlayerLobbyHandler handler = new PlayerLobbyHandler(this, player);
             Thread handlerThread = new Thread(handler);
