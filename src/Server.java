@@ -17,7 +17,12 @@ public class Server
     private HashMap<Integer,Game> games;
 
     public static void main(String[] args) {
-        Server server = new Server(PORT);
+        int port = PORT;
+        if (args.length > 0)
+        {
+            port = Integer.parseInt(args[0]);
+        }
+        Server server = new Server(port);
         server.start();
     }
 
