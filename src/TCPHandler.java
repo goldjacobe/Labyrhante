@@ -45,11 +45,14 @@ public class TCPHandler {
         os.write((byte) c);
     }
 
-    protected synchronized ArrayList<Byte> receiveMessage() throws IOException {
+    protected ArrayList<Byte> receiveMessage() throws IOException {
         int numStars = 0;
         ArrayList<Byte> out = new ArrayList<>();
         while (numStars < 3) {
-            int i = is.read();
+            int i;
+            synchronized (is) {
+                i = is.read();
+            }
             System.out.println(i); //todo remove
             if (i != -1) {
                 out.add((byte) i);
