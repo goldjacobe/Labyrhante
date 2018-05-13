@@ -35,8 +35,13 @@ public class Game implements Runnable {
         players = new HashMap<>();
 
         this.labyrinth = new Labyrinth(10, 50);
+
         numGhosts = NUM_GHOSTS;
         this.ghosts = new Ghost[numGhosts];
+        for (int i = 0; i < numGhosts; i++) {
+            ghosts[i] = new Ghost();
+        }
+
         this.server = server;
     }
 
@@ -73,9 +78,8 @@ public class Game implements Runnable {
         int i = 0;
 
         while(!isOver()) {
-            System.out.println("guns for hands"); //todo remove
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 System.out.println(e);
                 e.printStackTrace();
