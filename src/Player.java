@@ -41,7 +41,6 @@ public class Player extends Ghost{
     }
 
     public int leaveGame() {
-        started = false;
         return game;
     }
 

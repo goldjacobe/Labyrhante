@@ -316,7 +316,7 @@ public class Client extends TCPHandler {
         System.out.println(id);
     }
 
-    private void welcome(int m, int h, int w, int f, String ip, int port) {
+    private void welcome(int m, int h, int w, int f, String ip, int port) throws IOException {
         ip = Utility.unpadAddressString(ip);
         new Thread(new ServiceMulti(port, ip)).start();
         this.started = true;
@@ -324,6 +324,7 @@ public class Client extends TCPHandler {
         System.out.println("Hauteur : " + h);
         System.out.println("Largeur : " + w);
         System.out.println("Fantômes : " + f);
+        handleMessage();
     }
 
     private void pos(String id, int x, int y) {
