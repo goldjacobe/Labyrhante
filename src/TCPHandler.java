@@ -33,14 +33,14 @@ public class TCPHandler {
         }
     }
 
-    protected void sendNumber(int i) throws IOException {
+    protected synchronized void sendNumber(int i) throws IOException {
         byte[] toSend = Utility.intToTwoOctets(i);
         System.out.println("SENDING LITTLE ENDIAN: " + i); //todo remove
         os.write(toSend[0]);
         os.write(toSend[1]);
     }
 
-    protected void sendCharAscii(char c) throws IOException {
+    protected synchronized void sendCharAscii(char c) throws IOException {
         System.out.println("SENDING CHAR: " + (byte)c); //todo remove
         os.write((byte) c);
     }
