@@ -275,7 +275,7 @@ public class Client extends TCPHandler {
 
 
     private void games(int n) throws IOException {
-        System.out.println("Parties  :");
+        System.out.println("Parties :");
         for (int i = 0; i < n; i++) {
             handleMessage();
         }
@@ -367,6 +367,7 @@ public class Client extends TCPHandler {
 
     private void bye() {
         System.out.println("Au revoir !");
+        System.exit(0);
     }
 
     private void dunno() {
