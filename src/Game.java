@@ -73,6 +73,7 @@ public class Game implements Runnable {
         int i = 0;
 
         while(!isOver()) {
+            System.out.println("guns for hands"); //todo remove
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
