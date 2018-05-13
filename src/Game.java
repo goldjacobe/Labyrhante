@@ -79,7 +79,7 @@ public class Game implements Runnable {
 
         while(!isOver()) {
             try {
-                Thread.sleep(10000);
+                Thread.sleep(20000);
             } catch (InterruptedException e) {
                 System.out.println(e);
                 e.printStackTrace();

@@ -44,7 +44,7 @@ public class ServiceMulti implements Runnable {
             case "FANT":
                 x = messArray[1];
                 y = messArray[2];
-                System.out.println("\t" + "Le fantôme est maintenant à la position x :" + x + " et y :" + y);
+                System.out.println("\t" + "Un fantôme est maintenant à la position x : " + x + " et y :" + y);
                 break;
 
             case "SCOR":
@@ -52,7 +52,7 @@ public class ServiceMulti implements Runnable {
                 p = messArray[2];
                 x = messArray[3];
                 y = messArray[4];
-                System.out.println("\t" + "Un fantôme fut attrapé par " + id + " à la pos x :" + x + " y :" + y + ". Il est maintenant à " + p + " points.");
+                System.out.println("\t" + "Un fantôme fut attrapé par " + id + " à la pos x : " + x + " y : " + y + ". " + id + " est maintenant à " + p + " points.");
                 break;
 
             case "MESA":
