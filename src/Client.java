@@ -528,7 +528,7 @@ public class Client extends TCPHandler {
         System.out.println("Quelle partie ?");
         int m = Integer.parseInt(input.nextLine());
 
-        sendString("NEW ");
+        sendString("REG ");
         sendString(id);
         sendString(" ");
         sendString(Utility.pad4(port));

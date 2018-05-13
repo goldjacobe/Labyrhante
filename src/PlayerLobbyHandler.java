@@ -86,7 +86,7 @@ public class PlayerLobbyHandler extends PlayerHandler {
             return;
         }
 
-        this.id = id;;
+        this.id = id;
         player.joinGame(port, m);
         inGame = true;
         sendRegok(m);
@@ -161,7 +161,6 @@ public class PlayerLobbyHandler extends PlayerHandler {
 
         public void handleMessage() throws IOException {
             String command = findNextWord();
-            System.out.println(command);
             switch (command) {
                 case "START":
                     if (inGame) {
