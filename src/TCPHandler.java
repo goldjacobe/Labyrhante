@@ -38,29 +38,41 @@ public class TCPHandler {
         System.out.println("SENDING LITTLE ENDIAN: " + i); //todo remove
         os.write(toSend[0]);
         os.write(toSend[1]);
+        os.flush();
     }
 
     protected synchronized void sendCharAscii(char c) throws IOException {
         System.out.println("SENDING CHAR: " + (byte)c); //todo remove
         os.write((byte) c);
+        os.flush();
     }
 
     protected ArrayList<Byte> receiveMessage() throws IOException {
         int numStars = 0;
         ArrayList<Byte> out = new ArrayList<>();
         while (numStars < 3) {
-            int i;
             synchronized (is) {
+                int i;
                 i = is.read();
+                System.out.println(i); //todo remove
+                if (i != -1) {
+                    out.add((byte) i);
+                    if ((char)i == '*') {
+                        ++numStars;
+                    } else {
+                        numStars = 0;
+                    }
+                }
             }
-            System.out.println(i); //todo remove
-            if (i != -1) {
-                out.add((byte) i);
-            }
-            if ((char)i == '*') {
-                numStars++;
-            }
+
         }
+        //todo remove all this
+        int j=0;
+        byte[] bytes = new byte[out.size()];
+        for(Object o: out.toArray())
+            bytes[j++] = (Byte)o;
+        System.out.println(new String(bytes));
+        //todo to here
         return out;
     }
 
@@ -69,6 +81,7 @@ public class TCPHandler {
         public CommandHandler(ArrayList<Byte> input) {
             this.input = input;
             this.index = 0;
+
         }
 
         protected final ArrayList<Byte> input;
