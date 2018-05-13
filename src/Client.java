@@ -637,7 +637,7 @@ public class Client extends TCPHandler {
             return;
         }
 
-        sendString("MESS? ");
+        sendString("SEND? ");
         sendString(id);
         sendString(" ");
         sendString(mess);
