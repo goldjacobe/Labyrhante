@@ -486,7 +486,7 @@ public class Client extends TCPHandler {
             return;
         }
 
-        sendString("GAME? ");
+        sendString("GAMES? ");
         sendStars();
     }
 
