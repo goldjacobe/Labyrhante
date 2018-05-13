@@ -566,7 +566,9 @@ public class Client extends TCPHandler {
         int d = Integer.parseInt(input.nextLine());
 
         sendString(direction.name());
+        System.out.println(direction.name()); //todo remove
         sendString(" ");
+        System.out.println(d); //todo remove
         sendNumber(d);
         sendStars();
     }
