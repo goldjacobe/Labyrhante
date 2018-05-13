@@ -394,7 +394,7 @@ public class Client extends TCPHandler {
                 System.out.println("Rejoindre partie : \"reg\"");
             } else {
                 System.out.println("Quitter partie : \"unreg\"");
-                System.out.println("Commencer la partie (Tous les joueurs inscrits doivent commencer : \"start\"");
+                System.out.println("Commencer la partie (Tous les joueurs inscrits doivent commencer) : \"start\"");
             }
         } else {
             System.out.println("Monter : \"up\"");
