@@ -119,9 +119,7 @@ public class Game implements Runnable {
     }
 
     private void setUpGame() {
-        for(Player p: players.values()) {
-            choosePosition(p);
-        }
+        players.values().forEach((p) -> choosePosition(p));
         for(int i = 0; i < numGhosts; i++) {
             createGhost();
         }
