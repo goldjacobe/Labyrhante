@@ -43,6 +43,7 @@ public class Labyrinth {
         String line;
         while ((line = br.readLine()) != null) {
             out.append(line);
+            out.append("\n");
         }
 
         return out.toString();
