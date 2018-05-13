@@ -47,7 +47,11 @@ public class Labyrinth {
     }
 
     public boolean isOpen(int x, int y) {
-        return labyrinth[x][y];
+        try {
+            return labyrinth[x][y];
+        } catch (IndexOutOfBoundsException e) {
+            return false;
+        }
     }
 
 

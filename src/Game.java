@@ -315,6 +315,9 @@ public class Game implements Runnable {
             p.setY(newY);
             for (int j = 0; j < ghosts.length; j++) {
                 Ghost g = ghosts[j];
+                if (g == null) {
+                    continue;
+                }
                 if (newX == g.getX() && newY == g.getY()) {
                     p.incPoints();
                     castCapture(id);
