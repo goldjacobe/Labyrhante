@@ -188,11 +188,13 @@ public class Game implements Runnable {
 
         boolean out = true;
 
-        for (Player p : players.values()) {
-            out &= p.isStarted();
-        }
+        synchronized (players) {
+            for (Player p : players.values()) {
+                out &= p.isStarted();
+            }
 
-        return out;
+            return out;
+        }
     }
 
     public void sendAll(String id, String mess) throws IOException {
