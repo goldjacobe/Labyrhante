@@ -64,7 +64,6 @@ public class Server
     }
 
     public synchronized int createGame() {
-        System.out.println("game being created"); //todo remove
         int number = nextGameNumber++;
 
         try{
