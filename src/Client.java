@@ -382,13 +382,13 @@ public class Client extends TCPHandler {
         if (!started) {
             System.out.println("Demander la taille du labyrinthe d'une partie : \"size\"");
             System.out.println("Demander la liste des joueurs d'une partie : \"list\"");
-            System.out.println("Demander la liste des parties n' : \"games\"");
+            System.out.println("Demander la liste des parties : \"games\"");
             if(!inGame) {
                 System.out.println("Nouvelle partie : \"new\"");
-                System.out.println("Rejoindre partie \"reg\"");
+                System.out.println("Rejoindre partie : \"reg\"");
             } else {
-                System.out.println("Quitter partie \"unreg\"");
-                System.out.println("Commencer la partie (Tous les joueurs inscrits doivent commencer \"start\"");
+                System.out.println("Quitter partie : \"unreg\"");
+                System.out.println("Commencer la partie (Tous les joueurs inscrits doivent commencer : \"start\"");
             }
         } else {
             System.out.println("Monter : \"up\"");
@@ -507,6 +507,7 @@ public class Client extends TCPHandler {
         sendString(id);
         sendString(" ");
         sendString(Utility.pad(port));
+        System.out.println(Utility.pad(port));
         sendStars();
     }
 
