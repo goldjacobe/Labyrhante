@@ -184,11 +184,11 @@ public class Client extends TCPHandler {
 
                     index++;
 
-                    int x = findNextValue();
+                    int x = Integer.parseInt(findNextWord());
 
                     index++;
 
-                    int y = findNextValue();
+                    int y = Integer.parseInt(findNextWord());
 
                     pos(id, x, y);
                     break;
@@ -196,11 +196,11 @@ public class Client extends TCPHandler {
                 case "MOV":
                     index++;
 
-                    x = findNextValue();
+                    x = Integer.parseInt(findNextWord());
 
                     index++;
 
-                    y = findNextValue();
+                    y = Integer.parseInt(findNextWord());
 
                     mov(x, y);
                     break;
@@ -208,15 +208,15 @@ public class Client extends TCPHandler {
                 case "MOF":
                     index++;
 
-                    x = findNextValue();
+                    x = Integer.parseInt(findNextWord());
 
                     index++;
 
-                    y = findNextValue();
+                    y = Integer.parseInt(findNextWord());
 
                     index++;
 
-                    String p = findNextWord();
+                    int p = Integer.parseInt(findNextWord());
 
                     mof(x, y, p);
                     break;
@@ -236,15 +236,15 @@ public class Client extends TCPHandler {
 
                     index++;
 
-                    x = findNextValue();
+                    x = Integer.parseInt(findNextWord());
 
                     index++;
 
-                    y = findNextValue();
+                    y = Integer.parseInt(findNextWord());
 
                     index++;
 
-                    p = findNextWord();
+                    p = Integer.parseInt(findNextWord());
 
                     gPlayer(id, x, y, p);
                     break;
@@ -335,7 +335,7 @@ public class Client extends TCPHandler {
         System.out.println("@ (" + x + "," + y + ")");
     }
 
-    private void mof(int x, int y, String p) {
+    private void mof(int x, int y, int p) {
         System.out.println("FANTÔME !");
         System.out.println("@ (" + x + "," + y + ")");
         System.out.println(p + " points");
@@ -349,7 +349,7 @@ public class Client extends TCPHandler {
         }
     }
 
-    private void gPlayer(String id, int x, int y, String p) {
+    private void gPlayer(String id, int x, int y, int p) {
         System.out.println(id + " @ (" + x + "," + y + ") : " + p + " points");
     }
 
