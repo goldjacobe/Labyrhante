@@ -275,7 +275,7 @@ public class Client extends TCPHandler {
 
 
     private void games(int n) throws IOException {
-        System.out.println(n + "Parties  :");
+        System.out.println("Parties  :");
         for (int i = 0; i < n; i++) {
             handleMessage();
         }
