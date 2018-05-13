@@ -70,8 +70,8 @@ public class Game implements Runnable {
 
         server.startGame(number);
         setUpUDP();
-        spawnGameHandlers();
         setUpGame();
+        spawnGameHandlers();
 
         int i = 0;
 
