@@ -60,7 +60,7 @@ public class ServiceMulti implements Runnable {
                 for (int i = 2; i < messArray.length; i++) {
                     mess += (messArray[i] + " ");
                 }
-                System.out.println(id + " vous envoie : " + mess);
+                System.out.println(id + " envoie à tout le monde : " + mess);
                 break;
 
             case "END":

@@ -89,6 +89,7 @@ public class PlayerGameHandler extends PlayerHandler {
 
     private void sendAll(String mess) throws IOException {
         game.sendAll(this.id, mess);
+        sendAllSend();
     }
 
     private void send(String id, String mess) throws  IOException {
@@ -97,6 +98,11 @@ public class PlayerGameHandler extends PlayerHandler {
         } else {
             sendNosend();
         }
+    }
+
+    private void sendAllSend() throws IOException {
+        sendString("ALL!");
+        sendStars();
     }
 
     private void sendSend() throws IOException {
