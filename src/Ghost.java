@@ -1,6 +1,3 @@
-/**
- * Created by jacobgold on 5/12/18.
- */
 public class Ghost {
     private int x;
     private int y;

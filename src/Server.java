@@ -5,29 +5,41 @@ import java.net.UnknownHostException;
 import java.util.Collection;
 import java.util.HashMap;
 
-/**
- * Created by jacobgold on 5/9/18.
- */
 public class Server
 {
     public static final int PORT = 5000;
+    private static final int HEIGHT = 20;
+    private static final int WIDTH = 20;
 
     private final int port;
+    private final int height;
+    private final int width;
     private int nextGameNumber;
     private HashMap<Integer,Game> games;
 
     public static void main(String[] args) {
         int port = PORT;
+        int height = HEIGHT;
+        int width = WIDTH;
         if (args.length > 0)
         {
             port = Integer.parseInt(args[0]);
         }
-        Server server = new Server(port);
+        if (args.length > 1)
+        {
+            height = Integer.parseInt(args[1]);
+        }
+        if (args.length > 2) {
+            width = Integer.parseInt(args[2]);
+        }
+        Server server = new Server(port, height, width);
         server.start();
     }
 
-    public Server(int port) {
+    public Server(int port, int height, int width) {
         this.port = port;
+        this.height = height;
+        this.width = width;
         this.games = new HashMap<>();
         this.nextGameNumber = 0;
     }
@@ -101,4 +113,11 @@ public class Server
         }
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
 }

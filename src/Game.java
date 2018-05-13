@@ -15,12 +15,11 @@ public class Game implements Runnable {
     private final HashMap<String, Player> players;
     private final Ghost[] ghosts;
 
-    private final int height = 10;
-    private final int width = 50;
-
     private final Labyrinth labyrinth;
 
     private static final int NUM_GHOSTS = 5;
+    private final int height;
+    private final int width;
     private int numGhosts;
 
     private final InetAddress multicastAddress;
@@ -32,9 +31,11 @@ public class Game implements Runnable {
         this.number = number;
         this.multicastAddress = InetAddress.getByAddress(new byte[]{(byte)239, (byte)255, (byte)(number/256), (byte)(number)});
         this.multicastPort = 5000 + number;
+        this.height = server.getHeight();
+        this.width = server.getWidth();
         players = new HashMap<>();
 
-        this.labyrinth = new Labyrinth(10, 50);
+        this.labyrinth = new Labyrinth(height, width);
 
         numGhosts = NUM_GHOSTS;
         this.ghosts = new Ghost[numGhosts];
@@ -299,7 +300,7 @@ public class Game implements Runnable {
         return out;
     }
 
-    public synchronized boolean movePlayer(String id, Direction dir, int distance) throws  IOException {
+    public synchronized boolean movePlayer(String id, String dir, int distance) throws  IOException {
         Player p = getPlayer(id);
 
         for (int i = 0; i < distance; i++) {

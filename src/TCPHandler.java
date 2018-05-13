@@ -4,9 +4,6 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
-/**
- * Created by jacobgold on 5/12/18.
- */
 public class TCPHandler {
     protected final InputStream is;
     protected final OutputStream os;

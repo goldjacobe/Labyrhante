@@ -2,9 +2,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by jacobgold on 5/9/18.
- */
 public class PlayerLobbyHandler extends PlayerHandler {
     private final Server server;
     private boolean inGame;

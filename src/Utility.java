@@ -1,6 +1,3 @@
-/**
- * Created by jacobgold on 5/9/18.
- */
 public class Utility {
     public static byte[] intToTwoOctets(int i) {
         byte[] out = new byte[2];

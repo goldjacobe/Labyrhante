@@ -5,9 +5,6 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Created by jacobgold on 5/12/18.
- */
 public class Client extends TCPHandler {
     public static void main(String[] args) {
         String host = "localhost";

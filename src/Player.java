@@ -1,9 +1,6 @@
 import java.net.InetAddress;
 import java.net.Socket;
 
-/**
- * Created by jacobgold on 5/10/18.
- */
 public class Player extends Ghost{
 
     private final Socket socket;

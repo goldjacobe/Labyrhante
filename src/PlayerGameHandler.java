@@ -1,9 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Created by jacobgold on 5/10/18.
- */
 public class PlayerGameHandler extends PlayerHandler {
 
     private final Game game;
@@ -48,7 +45,7 @@ public class PlayerGameHandler extends PlayerHandler {
         handler.handleMessage();
     }
 
-    private void move(Direction dir, int distance) throws  IOException {
+    private void move(String dir, int distance) throws  IOException {
         if(game.movePlayer(id,  dir, distance)) {
             sendString("MOF " + player.getPosition() + " " + player.getPointsString());
             sendStars();
@@ -134,7 +131,7 @@ public class PlayerGameHandler extends PlayerHandler {
 
                     int d = Integer.parseInt(findNextWord());
 
-                    move(Direction.valueOf(command), d);
+                    move(command, d);
                     break;
 
                 case "QUIT":
