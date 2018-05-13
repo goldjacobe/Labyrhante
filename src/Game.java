@@ -57,7 +57,9 @@ public class Game implements Runnable {
     }
 
     public boolean addPlayer(String id, Player player) {
+        synchronized (players) {
         return players.putIfAbsent(id, player) == null;
+        }
     }
 
     public void run() {
