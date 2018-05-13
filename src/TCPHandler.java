@@ -40,6 +40,7 @@ public class TCPHandler {
     }
 
     protected void sendCharAscii(char c) throws IOException {
+        System.out.println(c); //todo remove
         os.write((byte) c);
     }
 
