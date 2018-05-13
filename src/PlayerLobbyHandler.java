@@ -182,7 +182,7 @@ public class PlayerLobbyHandler extends PlayerHandler {
                     index++;
 
                     String portStr = findNextWord();
-                    if (portStr.length() != 4) {
+                    if (portStr.length() < 4) {
                         sendDunno();
                         break;
                     }
@@ -214,7 +214,7 @@ public class PlayerLobbyHandler extends PlayerHandler {
                     index++;
 
                     portStr = findNextWord();
-                    if (portStr.length() != 4) {
+                    if (portStr.length() < 4) {
                         sendDunno();
                         break;
                     }

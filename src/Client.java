@@ -507,7 +507,6 @@ public class Client extends TCPHandler {
         sendString(id);
         sendString(" ");
         sendString(Utility.pad(port));
-        System.out.println(Utility.pad(port));
         sendStars();
     }
 
