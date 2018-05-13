@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.StringReader;
+import java.io.*;
 
 /**
  * Created by jacobgold on 5/11/18.
@@ -26,15 +24,28 @@ public class Labyrinth {
     public Labyrinth(int h, int w) {
         this.h = h;
         this.w = w;
-        String labyrinthString = LABY;
-        System.out.println(labyrinthString);
-        labyrinth = new boolean[h][w];
         try {
+            String labyrinthString = runLaby();
+            System.out.println(labyrinthString);
+            labyrinth = new boolean[h][w];
             readLabyrinth(labyrinthString);
         } catch (IOException e) {
             System.out.println(e);
             e.printStackTrace();
         }
+    }
+
+    private String runLaby() throws IOException {
+        Process process = new ProcessBuilder("./laby", "" + h, "" + w).start();
+        BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        StringBuilder out = new StringBuilder();
+
+        String line;
+        while ((line = br.readLine()) != null) {
+            out.append(line);
+        }
+
+        return out.toString();
     }
 
     private void readLabyrinth(String ls) throws IOException {
