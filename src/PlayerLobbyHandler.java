@@ -8,11 +8,13 @@ import java.util.Collection;
 public class PlayerLobbyHandler extends PlayerHandler {
     private final Server server;
     private boolean inGame;
+    private String id;
 
     public PlayerLobbyHandler(Server server, Player player) throws IOException {
         super(player);
         this.server = server;
         this.inGame = false;
+        this.id = "";
     }
 
     protected void handlePlayer() throws IOException {
@@ -64,6 +66,7 @@ public class PlayerLobbyHandler extends PlayerHandler {
 
         int m = server.createGame();
         server.addPlayerToGame(m, id, player);
+        this.id = id;
         player.joinGame(port, m);
         inGame = true;
         sendRegok(m);
@@ -80,6 +83,7 @@ public class PlayerLobbyHandler extends PlayerHandler {
             return;
         }
 
+        this.id = id;;
         player.joinGame(port, m);
         inGame = true;
         sendRegok(m);
@@ -98,7 +102,7 @@ public class PlayerLobbyHandler extends PlayerHandler {
 
     private void leaveGame() throws IOException {
         inGame = false;
-        int m = server.removePlayerFromGame(player);
+        int m = server.removePlayerFromGame(player, id);
         sendString("UNREGOK ");
         sendNumber(m);
         sendStars();

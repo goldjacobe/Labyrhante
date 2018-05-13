@@ -48,8 +48,11 @@ public class Server
         return game != null && game.addPlayer(id, player);
     }
 
-    public int removePlayerFromGame(Player p) {
-        return p.leaveGame();
+    public int removePlayerFromGame(Player p, String id) {
+        int m = p.leaveGame();
+        Game g = getGame(m);
+        g.removePlayer(id);
+        return m;
     }
 
     public Collection<Game> getGames() {
