@@ -257,7 +257,9 @@ public class Game implements Runnable {
     }
 
     public void removePlayer(String id) {
-        players.remove(id);
+        synchronized (players) {
+            players.remove(id);
+        }
     }
 
 
