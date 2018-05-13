@@ -81,11 +81,9 @@ public class PlayerGameHandler extends PlayerHandler {
     private void sendPlayerInfo(String id) throws IOException {
         sendString("GPLAYER " + id + " ");
         Player p = game.getPlayer(id);
-        sendNumber(p.getX());
+        sendString(p.getPosition());
         sendString(" ");
-        sendNumber(p.getY());
-        sendString(" ");
-        sendNumber(p.getPoints());
+        sendString(p.getPointsString());
         sendStars();
     }
 
