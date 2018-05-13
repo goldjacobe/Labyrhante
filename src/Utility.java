@@ -31,8 +31,12 @@ public class Utility {
         return address;
     }
 
-    public static String pad(int i) {
+    public static String pad4(int i) {
         return i < 10000 ? ("" + (i + 10000)).substring(1) : "" + i;
+    }
+
+    public static String pad3(int i) {
+        return i < 1000 ? ("" + (i + 1000)).substring(1): "" + i;
     }
 
 }

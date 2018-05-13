@@ -34,7 +34,7 @@ public class PlayerGameHandler extends PlayerHandler {
         sendNumber(game.getWidth());
         sendString(" ");
         sendNumber(game.getNumGhosts());
-        sendString(" " + Utility.padAddressString(game.getMulticastAddress()) + " " + Utility.pad(game.getMulticastPort()));
+        sendString(" " + Utility.padAddressString(game.getMulticastAddress()) + " " + Utility.pad4(game.getMulticastPort()));
         sendStars();
     }
 
@@ -128,14 +128,10 @@ public class PlayerGameHandler extends PlayerHandler {
                 case "RIGHT":
                     index++;
 
-                    int m = findNextValue();
+                    int d = Integer.parseInt(findNextWord());
 
-                    if (m == -1) {
-                        sendDunno();
-                        break;
-                    }
 
-                    move(Direction.valueOf("command"), m);
+                    move(Direction.valueOf("command"), d);
                     break;
 
                 case "QUIT":

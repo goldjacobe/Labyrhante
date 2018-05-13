@@ -45,7 +45,7 @@ public class TCPHandler {
         os.write((byte) c);
     }
 
-    protected ArrayList<Byte> receiveMessage() throws IOException {
+    protected synchronized ArrayList<Byte> receiveMessage() throws IOException {
         int numStars = 0;
         ArrayList<Byte> out = new ArrayList<>();
         while (numStars < 3) {

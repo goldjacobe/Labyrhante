@@ -22,10 +22,6 @@ public class Ghost {
     }
 
     public String getPosition() {
-        return padLoc(getX()) + " " + padLoc(getY());
-    }
-
-    private static String padLoc(int i) {
-        return ("" + (i + 1000)).substring(1);
+        return Utility.pad3(getX()) + " " + Utility.pad3(getY());
     }
 }

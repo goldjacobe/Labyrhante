@@ -507,7 +507,7 @@ public class Client extends TCPHandler {
         sendString("NEW ");
         sendString(id);
         sendString(" ");
-        sendString(Utility.pad(port));
+        sendString(Utility.pad4(port));
         sendStars();
     }
 
@@ -530,7 +530,7 @@ public class Client extends TCPHandler {
         sendString("NEW ");
         sendString(id);
         sendString(" ");
-        sendString(Utility.pad(port));
+        sendString(Utility.pad4(port));
         sendString(" ");
         sendNumber(m);
         sendStars();
@@ -567,7 +567,7 @@ public class Client extends TCPHandler {
 
         sendString(direction);
         sendString(" ");
-        sendNumber(d);
+        sendString(Utility.pad3(d));
         sendStars();
     }
 
