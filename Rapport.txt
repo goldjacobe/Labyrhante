@@ -15,49 +15,49 @@ java Server [PORT=5000] [HEIGHT=20] [WIDTH=20] [NUM_GHOSTS=5]
 javac *.java
 java Client [HOST=localhost] [PORT=5000]
 
-Fonctionnalités implémentées :
+FonctionnalitÃ©s implÃ©mentÃ©es :
 
-    • Le Labyrinthe contient des fantômes que les joueurs doivent attraper.
-    • Au début du jeu chaque joueur a 0 points
-    • Le but du jeu est d'accumuler le maximum de points en attrapant les fantômes
-    • L'emplacement des fantômes n'est pas connu aux joueurs
-    • Les joueurs ne connaissent que leur position et savent s'il peuvent se déplacer d'une case dans tous les sens
-    • La partie s'arrête quand il n'y a plus de fantômes ou de joueurs
-    • Si le joueur croise un fantôme sur son chemin, le fantôme disparait et le nombre de points du joueur est augmenté de 1
+    â€¢ Le Labyrinthe contient des fantÃ´mes que les joueurs doivent attraper.
+    â€¢ Au dÃ©but du jeu chaque joueur a 0 points
+    â€¢ Le but du jeu est d'accumuler le maximum de points en attrapant les fantÃ´mes
+    â€¢ L'emplacement des fantÃ´mes n'est pas connu aux joueurs
+    â€¢ Les joueurs ne connaissent que leur position et savent s'il peuvent se dÃ©placer d'une case dans tous les sens
+    â€¢ La partie s'arrÃªte quand il n'y a plus de fantÃ´mes ou de joueurs
+    â€¢ Si le joueur croise un fantÃ´me sur son chemin, le fantÃ´me disparait et le nombre de points du joueur est augmentÃ© de 1
 
 
 Conception :
 
 Application Serveur :
 
-    • Classes :
+    â€¢ Classes :
 
-        - Server.java : Classe contenant le main. Gère la connexion d’un nouveau client, et la création des Threads associés.
+        - Server.java : Classe contenant le main. GÃ¨re la connexion dâ€™un nouveau client, et la crÃ©ation des Threads associÃ©s.
         - Direction.java : Enumeration avec les 4 directions possibles dans le jeu.
-        - Game.java :  Runnable qui gère le déroulement d’une partie. S’occupe de l’envoi des messages UDP ou de Multidiffusion.
-        - Ghost.java : Propriétés d’un fantome
-        - Labyrinth.java : Gère la création d’un labyrinthe
-        - Player.java : Propriétés d’un joueur
-        - PlayerHandler.java : Runnable, hérite de TCPHandler.
-        - PlayerGameHandler.java : Hérite de PlayerHandler. Gère le traitement et l’envoi des messages pendant la partie
-        - PlayerLobbyHandler.java : Hérite de PlayerHandler. Gère le traitement et l’envoi des messages avant le commencement de la partie
-        - TCPHandler.java : S’occupe de l’envoi et les reception des messages TCP en byte[]
+        - Game.java :  Runnable qui gÃ¨re le dÃ©roulement dâ€™une partie. Sâ€™occupe de lâ€™envoi des messages UDP ou de Multidiffusion.
+        - Ghost.java : PropriÃ©tÃ©s dâ€™un fantome
+        - Labyrinth.java : GÃ¨re la crÃ©ation dâ€™un labyrinthe (en utilisant ./laby de Prof Sangnier)
+        - Player.java : PropriÃ©tÃ©s dâ€™un joueur
+        - PlayerHandler.java : Runnable, hÃ©rite de TCPHandler.
+        - PlayerGameHandler.java : HÃ©rite de PlayerHandler. GÃ¨re le traitement et lâ€™envoi des messages pendant la partie
+        - PlayerLobbyHandler.java : HÃ©rite de PlayerHandler. GÃ¨re le traitement et lâ€™envoi des messages avant le commencement de la partie
+        - TCPHandler.java : Sâ€™occupe de lâ€™envoi et les reception des messages TCP en byte[]
         - Utility.java : Fonctions de conversion en byte[]
 
-    • La communication de chaque joueur avec le serveur (après accept()), se fait sur Thread séparé. Ce Thread PlayerHandler sera associé au joueur et toutes les communications entre ce joueur et le serveur se feront sur ce Thread. Il sera arrêté à la déconnexion du joueur et/ou la fin de la partie
-    • Le service de communication UDP entre joueurs est assuré par la classe Game. Ce service sera lancé au démarrage du programme principal (dans main) sur un Thread séparé et sera arrêté avant l'arrêt de l'application
+    â€¢ La communication de chaque joueur avec le serveur (aprÃ¨s accept()), se fait sur Thread sÃ©parÃ©. Ce Thread PlayerHandler sera associÃ© au joueur et toutes les communications entre ce joueur et le serveur se feront sur ce Thread. Il sera arrÃªtÃ© Ã  la dÃ©connexion du joueur et/ou la fin de la partie
+    â€¢ Le service de communication UDP entre joueurs est assurÃ© par la classe Game. Ce service sera lancÃ© au dÃ©marrage du programme principal (dans main) sur un Thread sÃ©parÃ© et sera arrÃªtÃ© avant l'arrÃªt de l'application
 
 
 Application Client :
 
-    • Classes :
-        - Client.java : Classe contenant le Main. Hérite de TCPHandler. Envoi et réception des messages TCP
-        - ServiceUDP.java : Runnable pour la réception de messages UDP
-        - ServiceMulti.java : Runnable pour la réception de messages de Multidiffusion
-        - TCPHandler.java : S’occupe de l’envoi et les reception des messages TCP en byte[]
+    â€¢ Classes :
+        - Client.java : Classe contenant le Main. HÃ©rite de TCPHandler. Envoi et rÃ©ception des messages TCP
+        - ServiceUDP.java : Runnable pour la rÃ©ception de messages UDP
+        - ServiceMulti.java : Runnable pour la rÃ©ception de messages de Multidiffusion
+        - TCPHandler.java : Sâ€™occupe de lâ€™envoi et les reception des messages TCP en byte[]
         - Utility.java : Fonctions de conversion en byte[]
 
-    • L'écoute sur le port UDP se fera dans un Thread séparé : ServiceUDP. Ce service sera lancé au démarrage du programme principal (dans main) sur un Thread séparé et sera arrêté avant l'arrêt de l'application
-    • La Classe Service UDP se chargera de récupérer le message transmis par le partie de la part d'un joueur et l'affichera sur la console en indiquant le joueur origine du message
+    â€¢ L'Ã©coute sur le port UDP se fera dans un Thread sÃ©parÃ© : ServiceUDP. Ce service sera lancÃ© au dÃ©marrage du programme principal (dans main) sur un Thread sÃ©parÃ© et sera arrÃªtÃ© avant l'arrÃªt de l'application
+    â€¢ La Classe Service UDP se chargera de rÃ©cupÃ©rer le message transmis par le partie de la part d'un joueur et l'affichera sur la console en indiquant le joueur origine du message
 
 
