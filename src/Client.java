@@ -376,7 +376,11 @@ public class Client extends TCPHandler {
 
     private void sendRequest() throws IOException {
         printOptions();
-        chooseCommand();
+        try {
+            chooseCommand();
+        } catch (NumberFormatException e) {
+            sendRequest();
+        }
     }
 
     private void printOptions() {
