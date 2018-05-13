@@ -41,7 +41,7 @@ public class TCPHandler {
     }
 
     protected void sendCharAscii(char c) throws IOException {
-        System.out.println("SENDING CHAR: " + c); //todo remove
+        System.out.println("SENDING CHAR: " + (byte)c); //todo remove
         os.write((byte) c);
     }
 
