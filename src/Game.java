@@ -4,9 +4,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by jacobgold on 5/9/18.
- */
 public class Game implements Runnable {
 
     private final int number;
@@ -307,16 +304,16 @@ public class Game implements Runnable {
             int newX = p.getX();
             int newY = p.getY();
             switch (dir) {
-                case UP:
+                case "UP":
                     newX--;
                     break;
-                case DOWN:
+                case "DOWN":
                     newX++;
                     break;
-                case LEFT:
+                case "LEFT":
                     newY--;
                     break;
-                case RIGHT:
+                case "RIGHT":
                     newY++;
                     break;
             }
