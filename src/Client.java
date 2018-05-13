@@ -431,7 +431,7 @@ public class Client extends TCPHandler {
             case "down":
             case "left":
             case "right":
-                move(Direction.valueOf(command.toUpperCase()));
+                move(command.toUpperCase());
                 break;
             case "quit":
                 quit();
@@ -556,7 +556,7 @@ public class Client extends TCPHandler {
         sendStars();
     }
 
-    private void move(Direction direction) throws IOException {
+    private void move(String direction) throws IOException {
         if (!started) {
             sendRequest();
             return;
@@ -565,8 +565,8 @@ public class Client extends TCPHandler {
         System.out.println("Combien de cases?");
         int d = Integer.parseInt(input.nextLine());
 
-        sendString(direction.toString());
-        System.out.println(direction.toString()); //todo remove
+        sendString(direction);
+        System.out.println(direction); //todo remove
         sendString(" ");
         System.out.println(d); //todo remove
         sendNumber(d);
