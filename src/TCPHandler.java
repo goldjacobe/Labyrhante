@@ -49,7 +49,6 @@ public class TCPHandler {
         while (numStars < 3) {
             int i = is.read();
             if (i != -1) {
-                System.out.println(i);
                 out.add((byte) i);
             }
             if ((char)i == '*') {
