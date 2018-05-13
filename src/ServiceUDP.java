@@ -33,7 +33,7 @@ public class ServiceUDP implements Runnable {
         for (int i = 2; i < messArray.length; i++) {
             message += (messArray[i] + " ");
         }
-        System.out.println(id + " vous envoie : " + message);
+        System.out.println("\t" + id + " vous envoie : " + message);
 
     }
 
