@@ -8,18 +8,20 @@ import java.util.Collection;
 public class PlayerLobbyHandler extends PlayerHandler {
     private final Server server;
     private boolean inGame;
+    private boolean started;
     private String id;
 
     public PlayerLobbyHandler(Server server, Player player) throws IOException {
         super(player);
         this.server = server;
         this.inGame = false;
+        this.started = false;
         this.id = "";
     }
 
     protected void handlePlayer() throws IOException {
         sendGamesList();
-        while (true) {
+        while (!started) {
             lobbyMenu();
         }
     }
@@ -55,6 +57,7 @@ public class PlayerLobbyHandler extends PlayerHandler {
             sendDunno();
             return;
         }
+        started = true;
         player.start();
     }
 
@@ -158,6 +161,7 @@ public class PlayerLobbyHandler extends PlayerHandler {
 
         public void handleMessage() throws IOException {
             String command = findNextWord();
+            System.out.println(command);
             switch (command) {
                 case "START":
                     if (inGame) {

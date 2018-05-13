@@ -121,7 +121,6 @@ public class PlayerGameHandler extends PlayerHandler {
             if (game.isOver()) {
                 leave();
             }
-            System.out.println(command); //todo remove
             switch (command) {
                 case "UP":
                 case "DOWN":
@@ -131,7 +130,7 @@ public class PlayerGameHandler extends PlayerHandler {
 
                     int d = Integer.parseInt(findNextWord());
 
-                    move(Direction.valueOf("command"), d);
+                    move(Direction.valueOf(command), d);
                     break;
 
                 case "QUIT":
