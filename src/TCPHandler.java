@@ -35,14 +35,12 @@ public class TCPHandler {
 
     protected synchronized void sendNumber(int i) throws IOException {
         byte[] toSend = Utility.intToTwoOctets(i);
-        //System.out.println("SENDING LITTLE ENDIAN: " + i); //todo remove
         os.write(toSend[0]);
         os.write(toSend[1]);
         os.flush();
     }
 
     protected synchronized void sendCharAscii(char c) throws IOException {
-        //System.out.println("SENDING CHAR: " + (byte)c); //todo remove
         os.write((byte) c);
         os.flush();
     }
@@ -54,7 +52,6 @@ public class TCPHandler {
             synchronized (is) {
                 int i;
                 i = is.read();
-                //System.out.println(i); //todo remove
                 if (i != -1) {
                     out.add((byte) i);
                     if ((char)i == '*') {
@@ -66,15 +63,6 @@ public class TCPHandler {
             }
 
         }
-/*
-        //todo remove all this
-        int j=0;
-        byte[] bytes = new byte[out.size()];
-        for(Object o: out.toArray())
-            bytes[j++] = (Byte)o;
-        System.out.println(new String(bytes));
-        //todo to here
-*/
         return out;
     }
 

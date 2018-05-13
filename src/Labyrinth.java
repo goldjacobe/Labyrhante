@@ -27,6 +27,7 @@ public class Labyrinth {
         this.h = h;
         this.w = w;
         String labyrinthString = LABY;
+        System.out.println(labyrinthString);
         labyrinth = new boolean[h][w];
         try {
             readLabyrinth(labyrinthString);
