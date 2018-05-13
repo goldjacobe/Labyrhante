@@ -52,7 +52,7 @@ public class Client extends TCPHandler {
         try {
             DatagramSocket socket = new DatagramSocket();
             this.port = socket.getLocalPort();
-            new Thread(new ServiceUDP(socket)).run();
+            new Thread(new ServiceUDP(socket)).start();
         } catch (SocketException e) {
             System.out.println(e);
             e.printStackTrace();
@@ -318,7 +318,7 @@ public class Client extends TCPHandler {
 
     private void welcome(int m, int h, int w, int f, String ip, int port) {
         ip = Utility.unpadAddressString(ip);
-        new Thread(new ServiceMulti(port, ip)).run();
+        new Thread(new ServiceMulti(port, ip)).start();
         this.started = true;
         System.out.println("Bienvenue à la partie " + m);
         System.out.println("Hauteur : " + h);
